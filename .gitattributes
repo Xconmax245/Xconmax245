@@ -1,0 +1,14 @@
+# Normalize line endings
+* text=auto
+
+# SVGs should always be LF (they're XML)
+*.svg text eol=lf
+
+# YAML workflows — LF
+*.yml text eol=lf
+
+# Markdown — LF
+*.md text eol=lf
+
+# JSON — LF
+*.json text eol=lf

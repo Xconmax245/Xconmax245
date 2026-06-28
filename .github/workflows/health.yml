@@ -1,0 +1,72 @@
+name: Repository Health Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Runs daily at 02:00 UTC
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  health:
+    name: Run Health Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── SVG Validation ────────────────────────────────────────────────
+      - name: Install xmllint
+        run: sudo apt-get install -y libxml2-utils
+
+      - name: Validate all SVG files
+        run: |
+          echo "── Validating SVG files ──"
+          FAILED=0
+          find assets/ -name "*.svg" | while read f; do
+            xmllint --noout "$f" 2>&1 && echo "  ✓ $f" || { echo "  ✗ $f"; FAILED=1; }
+          done
+          exit $FAILED
+
+      # ── Asset File Existence ──────────────────────────────────────────
+      - name: Check required assets exist
+        run: |
+          echo "── Checking required assets ──"
+          REQUIRED=(
+            "assets/banner/hero.svg"
+            "assets/footer.svg"
+            "assets/diagrams/architecture.svg"
+            "assets/diagrams/timeline.svg"
+            "assets/diagrams/metrics.svg"
+            "assets/cards/card-proxy.svg"
+            "assets/cards/card-oss.svg"
+            "assets/cards/card-research.svg"
+            "assets/icons/logo.svg"
+          )
+          FAILED=0
+          for f in "${REQUIRED[@]}"; do
+            [ -f "$f" ] && echo "  ✓ $f" || { echo "  ✗ MISSING: $f"; FAILED=1; }
+          done
+          exit $FAILED
+
+      # ── Markdown Link Check ───────────────────────────────────────────
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Check README links
+        run: |
+          echo "── Checking README.md links ──"
+          markdown-link-check README.md \
+            --config .github/mlc-config.json \
+            || echo "::warning::Some links returned non-200 status — review manually"
+
+      # ── Summary ───────────────────────────────────────────────────────
+      - name: Health check summary
+        if: always()
+        run: |
+          echo "Health check complete."
+          echo "Review any ✗ failures above before merging."

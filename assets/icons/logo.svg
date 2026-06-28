@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Xconmax245 Logo">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#4F9DFF"/>
+    </linearGradient>
+    <filter id="lf" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style><![CDATA[
+      @keyframes logoPulse {
+        0%,100% { opacity:.8; }
+        50%     { opacity:1; }
+      }
+      .logo { animation: logoPulse 3s ease-in-out infinite; }
+    ]]></style>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="31" fill="#000000" stroke="url(#lg)" stroke-width="1"/>
+  <!-- X mark (monogram) -->
+  <text class="logo" x="32" y="42" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif"
+        font-size="28" font-weight="800" letter-spacing="-1"
+        fill="url(#lg)" filter="url(#lf)">X</text>
+  <!-- Corner accent marks -->
+  <polyline points="4,4 4,12 12,4" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.6"/>
+  <polyline points="60,4 60,12 52,4" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.6"/>
+  <polyline points="4,60 4,52 12,60" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.6"/>
+  <polyline points="60,60 60,52 52,60" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.6"/>
+</svg>

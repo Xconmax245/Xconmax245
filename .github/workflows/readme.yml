@@ -1,0 +1,34 @@
+name: README Refresh
+
+on:
+  schedule:
+    # Weekly consistency check — Sundays at 03:00 UTC
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    name: Scheduled README Refresh
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Touch README to trigger re-render
+        run: |
+          # GitHub caches profile READMEs. A no-op commit re-invalidates the cache.
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Update last-refreshed timestamp in a non-visible comment in README
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          sed -i "s|<!-- last-refreshed:.*-->|<!-- last-refreshed: $TIMESTAMP -->|" README.md || true
+
+          git diff --quiet && exit 0
+
+          git add README.md
+          git commit -m "chore(readme): scheduled refresh $TIMESTAMP [skip ci]"
+          git push

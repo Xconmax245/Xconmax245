@@ -1,0 +1,15 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^mailto:" },
+    { "pattern": "^https://linkedin\\.com" },
+    { "pattern": "^https://twitter\\.com" },
+    { "pattern": "^https://xconmax245\\.dev" },
+    { "pattern": "^https://github-readme-stats\\.vercel\\.app" },
+    { "pattern": "^https://github-readme-activity-graph\\.vercel\\.app" },
+    { "pattern": "^https://readme-typing-svg\\.demolab\\.com" }
+  ],
+  "httpStatusCodes": {
+    "treat-as-alive": [0, 429, 503]
+  },
+  "aliveStatusCodes": [200, 206]
+}

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 800 200" width="800" height="200" role="img" aria-label="Engineering Timeline">
+  <title>Engineering Timeline — Ademola Badru</title>
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="100%" stop-color="#020a14"/>
+    </linearGradient>
+    <linearGradient id="tline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#111111" stop-opacity="0"/>
+      <stop offset="15%"  stop-color="#4F9DFF" stop-opacity="0.6"/>
+      <stop offset="85%"  stop-color="#4F9DFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#111111" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="tglow" x="-20%" y="-200%" width="140%" height="500%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style><![CDATA[
+      @keyframes nodeBeat {
+        0%,100% { r:6; opacity:.6; }
+        50%     { r:8; opacity:1;  }
+      }
+      @keyframes labelFloat {
+        0%,100% { opacity:.8; transform:translateY(0); }
+        50%     { opacity:1;  transform:translateY(-2px); }
+      }
+      @keyframes arrowPulse {
+        0%,100% { opacity:.2; }
+        50%     { opacity:.6; }
+      }
+      .tn1 { animation: nodeBeat 3.0s ease-in-out infinite 0.0s; }
+      .tn2 { animation: nodeBeat 3.0s ease-in-out infinite 0.7s; }
+      .tn3 { animation: nodeBeat 3.0s ease-in-out infinite 1.4s; }
+      .tn4 { animation: nodeBeat 3.5s ease-in-out infinite 2.1s; }
+      .arr { animation: arrowPulse 2s ease-in-out infinite; }
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="200" fill="url(#tbg)"/>
+
+  <!-- Section label -->
+  <text x="400" y="22" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="500"
+        fill="#444444" letter-spacing="3">ENGINEERING TIMELINE</text>
+
+  <!-- ═══ HORIZONTAL TRACK ═══ -->
+  <line x1="60" y1="100" x2="740" y2="100" stroke="url(#tline)" stroke-width="1"/>
+
+  <!-- ═══ NODE 1: 2024 ═══ -->
+  <!-- Node -->
+  <circle class="tn1" cx="150" cy="100" r="6" fill="#4F9DFF" filter="url(#tglow)"/>
+  <circle cx="150" cy="100" r="12" fill="none" stroke="#4F9DFF" stroke-width="0.5" opacity="0.3"/>
+  <!-- Year above -->
+  <text x="150" y="72" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700"
+        fill="#FFFFFF" letter-spacing="1">2024</text>
+  <!-- Label below -->
+  <text x="150" y="126" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="500"
+        fill="#4F9DFF">Full-Stack</text>
+  <text x="150" y="141" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="10"
+        fill="#555555">Development</text>
+
+  <!-- Arrow 1→2 -->
+  <text class="arr" x="267" y="104" text-anchor="middle"
+        font-family="monospace" font-size="14" fill="#4F9DFF">→</text>
+
+  <!-- ═══ NODE 2: 2025 ═══ -->
+  <circle class="tn2" cx="340" cy="100" r="6" fill="#4F9DFF" filter="url(#tglow)"/>
+  <circle cx="340" cy="100" r="12" fill="none" stroke="#4F9DFF" stroke-width="0.5" opacity="0.3"/>
+  <text x="340" y="72" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700"
+        fill="#FFFFFF" letter-spacing="1">2025</text>
+  <text x="340" y="126" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="500"
+        fill="#4F9DFF">Web3</text>
+  <text x="340" y="141" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="10"
+        fill="#555555">Infrastructure</text>
+
+  <!-- Arrow 2→3 -->
+  <text class="arr" x="457" y="104" text-anchor="middle"
+        font-family="monospace" font-size="14" fill="#4F9DFF">→</text>
+
+  <!-- ═══ NODE 3: 2026 ═══ -->
+  <circle class="tn3" cx="530" cy="100" r="6" fill="#00F0FF" filter="url(#tglow)"/>
+  <circle cx="530" cy="100" r="12" fill="none" stroke="#00F0FF" stroke-width="0.5" opacity="0.4"/>
+  <text x="530" y="72" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700"
+        fill="#FFFFFF" letter-spacing="1">2026</text>
+  <text x="530" y="126" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="500"
+        fill="#00F0FF">Distributed</text>
+  <text x="530" y="141" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="10"
+        fill="#555555">Systems</text>
+
+  <!-- Arrow 3→Future (dashed) -->
+  <line class="arr" x1="558" y1="100" x2="656" y2="100" stroke="#4F9DFF" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ═══ NODE 4: Future ═══ -->
+  <circle class="tn4" cx="680" cy="100" r="6" fill="#4F9DFF" opacity="0.5" filter="url(#tglow)"/>
+  <circle cx="680" cy="100" r="12" fill="none" stroke="#4F9DFF" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.3"/>
+  <text x="680" y="72" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700"
+        fill="#555555" letter-spacing="1">→</text>
+  <text x="680" y="126" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="500"
+        fill="#4F9DFF" opacity="0.6">Open Source</text>
+  <text x="680" y="141" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="10"
+        fill="#444444">Infrastructure</text>
+
+  <!-- Bottom blurb -->
+  <text x="400" y="178" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.5"
+        fill="#333333">SHIPPING IN PRODUCTION · BUILDING IN PUBLIC</text>
+</svg>

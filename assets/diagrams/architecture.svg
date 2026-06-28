@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 800 360" width="800" height="360" role="img" aria-label="Technology Stack Architecture">
+  <title>Live Stack Architecture — Ademola Badru</title>
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="100%" stop-color="#020a14"/>
+    </linearGradient>
+    <linearGradient id="card-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.055"/>
+      <stop offset="100%" stop-color="#4F9DFF" stop-opacity="0.01"/>
+    </linearGradient>
+    <linearGradient id="pulse-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#4F9DFF" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#4F9DFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#4F9DFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="ag" x="-30%" y="-200%" width="160%" height="500%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Paths for pulse animation (connecting layer midpoints) -->
+    <!-- Each layer card is centered at x=400, layers at y: 30,82,134,186,238,290,332 -->
+    <style><![CDATA[
+      @keyframes pulseFlow {
+        0%   { transform:translateY(-15px); opacity:0; }
+        10%  { opacity:1; }
+        90%  { opacity:1; }
+        100% { transform:translateY(15px); opacity:0; }
+      }
+      @keyframes labelPop {
+        0%,100% { opacity:.7; }
+        50%     { opacity:1; }
+      }
+      @keyframes connPulse {
+        0%,100% { opacity:.15; }
+        50%     { opacity:.4; }
+      }
+      .p1 { animation: pulseFlow 2.0s ease-in-out infinite 0.0s; }
+      .p2 { animation: pulseFlow 2.0s ease-in-out infinite 0.3s; }
+      .p3 { animation: pulseFlow 2.0s ease-in-out infinite 0.6s; }
+      .p4 { animation: pulseFlow 2.0s ease-in-out infinite 0.9s; }
+      .p5 { animation: pulseFlow 2.0s ease-in-out infinite 1.2s; }
+      .p6 { animation: pulseFlow 2.0s ease-in-out infinite 1.5s; }
+      .conn { animation: connPulse 3s ease-in-out infinite; }
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="360" fill="url(#abg)"/>
+
+  <!-- Title -->
+  <text x="400" y="22" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="500"
+        fill="#444444" letter-spacing="3">LIVE STACK ARCHITECTURE</text>
+
+  <!-- ═══ STACK LAYERS ═══ -->
+  <!-- Layer helper: each card is 220w × 36h, centered at x=400 -->
+
+  <!-- [0] Browser -->
+  <rect x="290" y="32" width="220" height="36" rx="8" fill="url(#card-g)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.35"/>
+  <text x="400" y="55" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Browser</text>
+  <text x="490" y="55" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">React / Next.js</text>
+
+  <!-- Connector 0→1 -->
+  <line class="conn" x1="400" y1="68" x2="400" y2="88" stroke="#4F9DFF" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect class="p1" x="397" y="76" width="6" height="10" rx="3" fill="#4F9DFF" filter="url(#ag)"/>
+
+  <!-- [1] Next.js / API Layer -->
+  <rect x="270" y="88" width="260" height="36" rx="8" fill="url(#card-g)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.35"/>
+  <text x="400" y="111" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">API Layer</text>
+  <text x="516" y="111" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">Next.js · Node.js · Express</text>
+
+  <!-- Connector 1→2 -->
+  <line class="conn" x1="400" y1="124" x2="400" y2="144" stroke="#4F9DFF" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect class="p2" x="397" y="132" width="6" height="10" rx="3" fill="#4F9DFF" filter="url(#ag)"/>
+
+  <!-- [2] Cache / Queue -->
+  <rect x="280" y="144" width="240" height="36" rx="8" fill="url(#card-g)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.35"/>
+  <text x="400" y="167" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Cache / Queue</text>
+  <text x="506" y="167" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">Redis</text>
+
+  <!-- Connector 2→3 -->
+  <line class="conn" x1="400" y1="180" x2="400" y2="200" stroke="#4F9DFF" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect class="p3" x="397" y="188" width="6" height="10" rx="3" fill="#4F9DFF" filter="url(#ag)"/>
+
+  <!-- [3] Database -->
+  <rect x="280" y="200" width="240" height="36" rx="8" fill="url(#card-g)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.35"/>
+  <text x="400" y="223" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Database</text>
+  <text x="506" y="223" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">PostgreSQL · Supabase</text>
+
+  <!-- Connector 3→4 -->
+  <line class="conn" x1="400" y1="236" x2="400" y2="256" stroke="#4F9DFF" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect class="p4" x="397" y="244" width="6" height="10" rx="3" fill="#4F9DFF" filter="url(#ag)"/>
+
+  <!-- [4] Blockchain -->
+  <rect x="285" y="256" width="230" height="36" rx="8" fill="url(#card-g)" stroke="#00F0FF" stroke-width="0.5" stroke-opacity="0.5"/>
+  <text x="400" y="279" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#00F0FF">Blockchain</text>
+  <text x="501" y="279" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">EVM · Solidity</text>
+
+  <!-- Connector 4→5 -->
+  <line class="conn" x1="400" y1="292" x2="400" y2="312" stroke="#4F9DFF" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <rect class="p5" x="397" y="300" width="6" height="10" rx="3" fill="#4F9DFF" filter="url(#ag)"/>
+
+  <!-- [5] Monitoring / Infra -->
+  <rect x="285" y="312" width="230" height="36" rx="8" fill="url(#card-g)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.35"/>
+  <text x="400" y="335" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Observability</text>
+  <text x="501" y="335" text-anchor="end"   font-family="'JetBrains Mono', monospace" font-size="9" fill="#444444">Docker · Linux · Metrics</text>
+
+  <!-- Side labels (layer category) -->
+  <text x="50" y="51"  font-family="'JetBrains Mono', monospace" font-size="8" fill="#333333" letter-spacing="1">CLIENT</text>
+  <text x="50" y="107" font-family="'JetBrains Mono', monospace" font-size="8" fill="#333333" letter-spacing="1">SERVER</text>
+  <text x="50" y="163" font-family="'JetBrains Mono', monospace" font-size="8" fill="#333333" letter-spacing="1">CACHE</text>
+  <text x="50" y="219" font-family="'JetBrains Mono', monospace" font-size="8" fill="#333333" letter-spacing="1">DATA</text>
+  <text x="50" y="275" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00F0FF" letter-spacing="1">WEB3</text>
+  <text x="50" y="331" font-family="'JetBrains Mono', monospace" font-size="8" fill="#333333" letter-spacing="1">INFRA</text>
+
+  <!-- Left vertical timeline track -->
+  <line x1="80" y1="32" x2="80" y2="348" stroke="#111111" stroke-width="1"/>
+  <circle cx="80" cy="50"  r="2.5" fill="#4F9DFF" opacity="0.5"/>
+  <circle cx="80" cy="106" r="2.5" fill="#4F9DFF" opacity="0.5"/>
+  <circle cx="80" cy="162" r="2.5" fill="#4F9DFF" opacity="0.5"/>
+  <circle cx="80" cy="218" r="2.5" fill="#4F9DFF" opacity="0.5"/>
+  <circle cx="80" cy="274" r="2.5" fill="#00F0FF" opacity="0.7"/>
+  <circle cx="80" cy="330" r="2.5" fill="#4F9DFF" opacity="0.5"/>
+</svg>

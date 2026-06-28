@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 260 200" width="260" height="200" role="img" aria-label="Consensus Lab — Research Project Card">
+  <defs>
+    <linearGradient id="cbg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#080010"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="ctop3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8844FF" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#8844FF" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#4F9DFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="cg3" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style><![CDATA[
+      @keyframes borderGlow3 {
+        0%,100% { stroke-opacity:.2; }
+        50%     { stroke-opacity:.5; }
+      }
+      @keyframes rNode {
+        0%,100% { opacity:.5; }
+        50%     { opacity:1; }
+      }
+      .cb3 { animation: borderGlow3 4s ease-in-out infinite 1s; }
+      .rn { animation: rNode 2.5s ease-in-out infinite; }
+    ]]></style>
+  </defs>
+
+  <rect width="260" height="200" rx="14" fill="url(#cbg3)"/>
+  <rect class="cb3" width="260" height="200" rx="14" fill="none" stroke="#8844FF" stroke-width="1"/>
+  <rect x="0" y="0" width="260" height="1.5" rx="1" fill="url(#ctop3)" filter="url(#cg3)"/>
+
+  <!-- Icon: mini network graph (consensus) -->
+  <g transform="translate(102,18)">
+    <line x1="28" y1="10" x2="10" y2="28" stroke="#8844FF" stroke-width="0.8" opacity="0.5"/>
+    <line x1="28" y1="10" x2="46" y2="28" stroke="#8844FF" stroke-width="0.8" opacity="0.5"/>
+    <line x1="10" y1="28" x2="28" y2="44" stroke="#8844FF" stroke-width="0.8" opacity="0.5"/>
+    <line x1="46" y1="28" x2="28" y2="44" stroke="#8844FF" stroke-width="0.8" opacity="0.5"/>
+    <line x1="10" y1="28" x2="46" y2="28" stroke="#8844FF" stroke-width="0.8" opacity="0.3"/>
+    <circle class="rn" cx="28" cy="10" r="4" fill="#8844FF" filter="url(#cg3)"/>
+    <circle cx="10" cy="28" r="3" fill="#8844FF" opacity="0.7"/>
+    <circle cx="46" cy="28" r="3" fill="#8844FF" opacity="0.7"/>
+    <circle cx="28" cy="44" r="3" fill="#8844FF" opacity="0.7"/>
+  </g>
+
+  <!-- Tag: RESEARCH -->
+  <rect x="8" y="8" width="56" height="16" rx="4" fill="#8844FF" opacity="0.12"/>
+  <text x="36" y="20" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#8844FF" letter-spacing="1">RESEARCH</text>
+
+  <text x="130" y="84" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="15" font-weight="700"
+        fill="#FFFFFF">Consensus Lab</text>
+
+  <rect x="80" y="92" width="100" height="0.5" fill="#8844FF" opacity="0.4"/>
+
+  <text x="130" y="112" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#666666">Distributed consensus</text>
+  <text x="130" y="126" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#666666">and BFT research</text>
+
+  <rect x="38"  y="146" width="28" height="18" rx="5" fill="#111111"/>
+  <text x="52"  y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00ADD8">Go</text>
+
+  <rect x="72"  y="146" width="34" height="18" rx="5" fill="#111111"/>
+  <text x="89"  y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#FFFFFF">Rust</text>
+
+  <rect x="112" y="146" width="44" height="18" rx="5" fill="#111111"/>
+  <text x="134" y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#2496ED">Docker</text>
+
+  <rect x="162" y="146" width="52" height="18" rx="5" fill="#111111"/>
+  <text x="188" y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#888888">Ongoing</text>
+
+  <text x="130" y="184" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#8844FF" letter-spacing="0.5">View Research →</text>
+
+  <polyline points="245,186 258,186 258,198" fill="none" stroke="#8844FF" stroke-width="1" stroke-opacity="0.3"/>
+  <polyline points="2,186 2,198 14,198" fill="none" stroke="#8844FF" stroke-width="1" stroke-opacity="0.3"/>
+</svg>

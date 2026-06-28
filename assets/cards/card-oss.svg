@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 260 200" width="260" height="200" role="img" aria-label="Developer Tools — Project Card">
+  <defs>
+    <linearGradient id="cbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#0a0d06"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="ctop2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4F9DFF" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#4F9DFF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4F9DFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="cg2" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style><![CDATA[
+      @keyframes borderGlow2 {
+        0%,100% { stroke-opacity:.2; }
+        50%     { stroke-opacity:.45; }
+      }
+      .cb2 { animation: borderGlow2 3.5s ease-in-out infinite 0.5s; }
+    ]]></style>
+  </defs>
+
+  <rect width="260" height="200" rx="14" fill="url(#cbg2)"/>
+  <rect class="cb2" width="260" height="200" rx="14" fill="none" stroke="#4F9DFF" stroke-width="1"/>
+  <rect x="0" y="0" width="260" height="1.5" rx="1" fill="url(#ctop2)" filter="url(#cg2)"/>
+
+  <!-- Icon: terminal/bracket symbol -->
+  <text x="130" y="54" text-anchor="middle"
+        font-family="'JetBrains Mono', monospace" font-size="28" font-weight="700"
+        fill="#4F9DFF" opacity="0.8" filter="url(#cg2)">&lt;/&gt;</text>
+
+  <!-- Tag: OPEN SOURCE -->
+  <rect x="8" y="8" width="74" height="16" rx="4" fill="#4F9DFF" opacity="0.1"/>
+  <text x="45" y="20" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#4F9DFF" letter-spacing="1">OPEN SOURCE</text>
+
+  <text x="130" y="84" text-anchor="middle"
+        font-family="'Inter', system-ui, sans-serif" font-size="15" font-weight="700"
+        fill="#FFFFFF">Developer Tools</text>
+
+  <rect x="80" y="92" width="100" height="0.5" fill="#4F9DFF" opacity="0.4"/>
+
+  <text x="130" y="112" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#666666">Open-source utilities</text>
+  <text x="130" y="126" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#666666">and automation modules</text>
+
+  <rect x="30"  y="146" width="44" height="18" rx="5" fill="#111111"/>
+  <text x="52"  y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#339933">Node.js</text>
+
+  <rect x="80"  y="146" width="34" height="18" rx="5" fill="#111111"/>
+  <text x="97"  y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#FFFFFF">Rust</text>
+
+  <rect x="120" y="146" width="34" height="18" rx="5" fill="#111111"/>
+  <text x="137" y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#FCC624">Linux</text>
+
+  <rect x="160" y="146" width="64" height="18" rx="5" fill="#111111"/>
+  <text x="192" y="159" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#888888">Zero-dep</text>
+
+  <text x="130" y="184" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="10" fill="#4F9DFF" letter-spacing="0.5">View Project →</text>
+
+  <polyline points="245,186 258,186 258,198" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.3"/>
+  <polyline points="2,186 2,198 14,198" fill="none" stroke="#4F9DFF" stroke-width="1" stroke-opacity="0.3"/>
+</svg>

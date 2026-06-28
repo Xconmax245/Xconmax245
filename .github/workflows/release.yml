@@ -1,0 +1,81 @@
+name: Repository Highlights Updater
+
+on:
+  schedule:
+    # Runs every 6 hours
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-metrics:
+    name: Update Custom Metrics SVG
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub profile stats
+        id: stats
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch public profile data
+          PROFILE=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/users/Xconmax245")
+
+          REPOS=$(echo "$PROFILE" | jq -r '.public_repos // 0')
+          FOLLOWERS=$(echo "$PROFILE" | jq -r '.followers // 0')
+
+          # Fetch star count across all repos
+          STARS=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/users/Xconmax245/repos?per_page=100&type=owner" \
+            | jq '[.[].stargazers_count] | add // 0')
+
+          # Fetch merged PR count
+          PRS=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/search/issues?q=author:Xconmax245+type:pr+is:merged" \
+            | jq -r '.total_count // 0')
+
+          # Fetch closed issues authored
+          ISSUES=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/search/issues?q=author:Xconmax245+type:issue+is:closed" \
+            | jq -r '.total_count // 0')
+
+          # Fetch commit count (current year)
+          YEAR=$(date +%Y)
+          COMMITS=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/search/commits?q=author:Xconmax245&per_page=1" \
+            -H "Accept: application/vnd.github.cloak-preview" \
+            | jq -r '.total_count // 0')
+
+          echo "repos=$REPOS" >> $GITHUB_OUTPUT
+          echo "stars=$STARS" >> $GITHUB_OUTPUT
+          echo "followers=$FOLLOWERS" >> $GITHUB_OUTPUT
+          echo "prs=$PRS" >> $GITHUB_OUTPUT
+          echo "issues=$ISSUES" >> $GITHUB_OUTPUT
+          echo "commits=$COMMITS" >> $GITHUB_OUTPUT
+
+      - name: Inject values into metrics SVG
+        run: |
+          sed -i "s|<!--REPOS-->[^<]*|<!--REPOS-->${{ steps.stats.outputs.repos }}|g" \
+            assets/diagrams/metrics.svg
+          sed -i "s|<!--STARS-->[^<]*|<!--STARS-->${{ steps.stats.outputs.stars }}|g" \
+            assets/diagrams/metrics.svg
+          sed -i "s|<!--COMMITS-->[^<]*|<!--COMMITS-->${{ steps.stats.outputs.commits }}|g" \
+            assets/diagrams/metrics.svg
+          sed -i "s|<!--FOLLOWERS-->[^<]*|<!--FOLLOWERS-->${{ steps.stats.outputs.followers }}|g" \
+            assets/diagrams/metrics.svg
+          sed -i "s|<!--PRS-->[^<]*|<!--PRS-->${{ steps.stats.outputs.prs }}|g" \
+            assets/diagrams/metrics.svg
+          sed -i "s|<!--ISSUES-->[^<]*|<!--ISSUES-->${{ steps.stats.outputs.issues }}|g" \
+            assets/diagrams/metrics.svg
+
+      - name: Commit updated metrics
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(metrics): update repository highlights [skip ci]"
+          file_pattern: assets/diagrams/metrics.svg
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
