@@ -36,7 +36,7 @@
 
   <!-- Card 1: Repositories -->
   <rect x="12" y="30" width="112" height="82" rx="10" fill="url(#mcard)" stroke="#4F9DFF" stroke-width="0.5" stroke-opacity="0.3"/>
-  <text x="68" y="62" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#FFFFFF" class="mv" filter="url(#mglow)"><!--REPOS-->28</text>
+  <text x="68" y="62" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="700" fill="#FFFFFF" class="mv" filter="url(#mglow)"><!--REPOS-->29</text>
   <text x="68" y="82" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="9" fill="#4F9DFF" letter-spacing="1">REPOS</text>
   <text x="68" y="100" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="8" fill="#333333">Repositories</text>
 
