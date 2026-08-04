@@ -27,6 +27,13 @@
 
 <br/>
 
+<div align="center">
+  <p><b>Currently Listening To</b></p>
+  [![Now Playing](https://YOUR_VERCEL_PROJECT_URL.vercel.app/api/orchestrator?background_type=blur_dark&border_color=ffffff)](https://YOUR_VERCEL_PROJECT_URL.vercel.app/redirect)
+</div>
+
+<br/>
+
 ---
 
 <br/>
