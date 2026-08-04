@@ -1,5 +1,5 @@
 &nbsp;<div align="center">
-  [![Now Playing](https://novatorem.vercel.app/api/orchestrator?background_type=blur_dark&border_color=ffffff)](https://novatorem.vercel.app/redirect)
+  [![Now Playing](https://xconmax245.vercel.app/api/orchestrator?background_type=blur_dark&border_color=ffffff)](https://xconmax245.vercel.app/redirect)
 </div>
 
 &nbsp;<div align="center">
