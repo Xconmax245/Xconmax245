@@ -27,7 +27,7 @@ class SpotifyConfig:
     """Spotify API configuration."""
 
     client_id: str = field(default_factory=lambda: os.getenv("SPOTIFY_CLIENT_ID", ""))
-    client_secret: str = field(default_factory=lambda: os.getenv("SPOTIFY_SECRET_ID", ""))
+    client_secret: str = field(default_factory=lambda: os.getenv("SPOTIFY_SECRET_ID", os.getenv("SPOTIFY_CLIENT_SECRET", "")))
     refresh_token: str = field(default_factory=lambda: os.getenv("SPOTIFY_REFRESH_TOKEN", ""))
 
     # API URLs
